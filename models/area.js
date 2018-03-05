@@ -13,12 +13,20 @@ const AreaSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    isActive: {
+        type: Boolean,
+        required: true
+    },
     isDeleted: {
         type: Boolean
     }
 });
 
 const Area = module.exports = mongoose.model('Area', AreaSchema);
+
+module.exports.getAllAreas = function (callback) {
+    Area.find({ isDeleted: false }, callback);
+}
 
 module.exports.getAreaById = function (id, callback) {
     Area.findById(id, callback);
@@ -33,11 +41,8 @@ module.exports.addArea = function (newArea, callback) {
     newArea.save(callback);
 }
 
-module.exports.updateArea = function (newArea, callback) {
-    newArea.save(callback);
+module.exports.updateArea = function (updatedArea, callback) {
+    //Area.findByIdAndUpdate(updatedArea.id, updatedArea, { new: true }, callback);
+    let query = { _id: updatedArea.id }
+    Area.update(query, updateArea, callback);
 }
-
-module.exports.deleteArea = function (newArea, callback) {
-    newArea.save(callback);
-}
-
