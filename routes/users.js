@@ -5,6 +5,43 @@ const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const config = require('../config/database');
 
+//get all users
+router.get('/', (req, res, next) => {
+	User.getUsers((err, users) => {
+		if (err) {
+			res.json({ success: false, msg: err });
+		}
+		else {
+			res.json({ success: true, users: users });
+		}
+	})
+});
+
+//get user by id
+router.get('/:id', (req, res, next) => {
+	User.getUserById(req.params.id, (err, user) => {
+		if (err) {
+			res.json({ success: false, msg: err });
+		}
+		else {
+			res.json({ success: true, user: user });
+		}
+	});
+});
+
+//edit user post
+router.post('/edit', (req, res, next) => {
+	let updatedUser = req.body.user;
+	User.updateUser(updatedUser, (err, user) => {
+		if (err) {
+			res.json({ success: false, msg: 'Failed to update user' });
+		}
+		else {
+			res.json({ success: true, user: user });
+		}
+	});
+});
+
 //Register
 router.post('/register', (req, res, next) => {
 	let newUser = new User({
@@ -26,7 +63,6 @@ router.post('/register', (req, res, next) => {
 
 //Authenticate
 router.post('/authenticate', (req, res, next) => {
-	console.log(req);
 	const username = req.body.username;
 	const password = req.body.password;
 
