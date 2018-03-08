@@ -9,29 +9,6 @@ export class AuthService {
   user: any;
   constructor(private http: Http) { }
 
-  registerUser(user){
-    let headers = new Headers();
-    headers.append('Content-Type','application/json');
-    return this.http.post('users/register',user,{headers:headers})
-      .map(res=> res.json());
-  }
-
-  authenticateUser(user){
-    let headers = new Headers();
-    headers.append('Content-Type','application/json');
-    return this.http.post('users/authenticate',user,{headers:headers})
-      .map(res=> res.json());
-  }
-
-  getUserProfile(){
-    let headers = new Headers();
-    this.loadToken();
-    headers.append('Authorization',this.authToken);
-    headers.append('Content-Type','application/json');
-    return this.http.get('users/profile',{headers:headers})
-      .map(res=> res.json());
-  }
-
   loadToken()
   {
     const token = localStorage.getItem('id_token');

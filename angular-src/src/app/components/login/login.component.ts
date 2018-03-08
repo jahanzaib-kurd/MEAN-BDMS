@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ValidateService } from '../../services/validate.service';
+import { UsersService } from '../../services/users.service';
 import { AuthService } from '../../services/auth.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from "@angular/router";
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private validateService: ValidateService,
     private flashMessage: FlashMessagesService,
-    private authService: AuthService,
+    private usersService: UsersService,
+    private authService:AuthService,
     private router: Router
   ) { }
 
@@ -41,7 +43,7 @@ export class LoginComponent implements OnInit {
     }
 
     //Register User
-    this.authService.authenticateUser(user).subscribe(data => {
+    this.usersService.authenticateUser(user).subscribe(data => {
       if (data.success) {
         this.authService.storeUserData(data.token,data.user);
         this.flashMessage.show('user Logged in', { cssClass: 'alert-success', timeout: 3000 });

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
+import { UsersService } from '../../services/users.service';
 import { Router } from "@angular/router";
 
 @Component({
@@ -10,12 +10,12 @@ import { Router } from "@angular/router";
 export class ProfileComponent implements OnInit {
   user: Object;
   constructor(
-    private authService: AuthService,
+    private usersService: UsersService,
     private router: Router
   ) { }
 
   ngOnInit() {
-    this.authService.getUserProfile().subscribe(
+    this.usersService.getUserProfile().subscribe(
       profile => {
         this.user = profile.user;
       },
