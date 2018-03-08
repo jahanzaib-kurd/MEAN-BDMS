@@ -29,7 +29,7 @@ router.get('/:id', (req, res, next) => {
 	});
 });
 
-//edit user post
+//edit user 
 router.post('/edit', (req, res, next) => {
 	let updatedUser = req.body.user;
 	User.updateUser(updatedUser, (err, user) => {
