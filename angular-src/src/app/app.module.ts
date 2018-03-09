@@ -7,9 +7,6 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { Component } from '@angular/core/src/metadata/directives';
 import { FlashMessagesModule } from 'angular2-flash-messages';
-import {AnimationsModule} from '@angular/animations';
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
-import {BrowserAnimationsModule} from '@angular/platform-chrome/animations';
 
 //Components
 import { AppComponent } from './app.component';
@@ -63,8 +60,7 @@ const appRoutes: Routes = [
     AuthService,
     AuthGuard,
     UsersService,
-    AppConfig,
-    { provide: APP_INITIALIZER, useFactory: (config: AppConfig) => () => config.load(), deps: [AppConfig], multi: true }
+    AppConfig
   ],
   bootstrap: [AppComponent]
 })

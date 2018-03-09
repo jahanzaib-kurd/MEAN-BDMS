@@ -12,7 +12,7 @@ export class UsersService {
     private authService: AuthService,
     private config: AppConfig
   ) {
-    this.serviceUrl = this.config.getConfig('serviceUrl');
+    this.serviceUrl = (config.isProd ? config.prodServiceUrl:config.devServiceUrl);
   }
   
   authenticateUser(user) {
