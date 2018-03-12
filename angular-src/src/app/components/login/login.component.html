@@ -1,16 +1,22 @@
 <h2 class="page-header">Login</h2>
-<form (submit)="onLoginSubmit()" novalidate>
+<form  novalidate (submit)="onLoginSubmit()" #loginForm="ngForm">
   <div class="form-group">
     <label>Username</label>
-    <input type="text" name="username" [(ngModel)]="username" [ngClass]="{'is-invalid': uname.errors?.pattern || uname.errors?.required,'is-valid':!uname.invalid}" class="form-control" placeholder="Username" [pattern]="usernamePattern"
+    <input type="text" name="username" [(ngModel)]="username" [ngClass]="{'is-invalid': uname.touched && (uname.errors?.pattern || uname.errors?.required),'is-valid':!uname.invalid}" class="form-control" placeholder="Username" [pattern]="usernamePattern"
       #uname="ngModel" required>
     <div class="invalid-feedback" *ngIf="uname.errors?.pattern">
-      User name not valid.
+      Username not valid.
+    </div>
+    <div class="invalid-feedback" *ngIf="uname.errors?.required">
+      Username is required.
     </div>
   </div>
   <div class="form-group">
     <label>Password</label>
-    <input type="password" name="password" [(ngModel)]="password" class="form-control" placeholder="Password">
+    <input type="password" name="password" [(ngModel)]="password" [ngClass]="{'is-invalid': pass.touched && (pass.errors?.required),'is-valid':!pass.invalid}" class="form-control" placeholder="Password" #pass="ngModel" required>
+    <div class="invalid-feedback" *ngIf="pass.errors?.required">
+      Password is required.
+    </div>
   </div>
-  <button type="submit" class="btn btn-primary">Login</button>
+  <button type="submit" class="btn btn-primary" [disabled]="!loginForm.form.valid">Login</button>
 </form>
