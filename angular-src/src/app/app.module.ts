@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { Component } from '@angular/core/src/metadata/directives';
 import { FlashMessagesModule } from 'angular2-flash-messages';
+import {DataTableModule} from "angular2-datatable";
 
 //Components
 import { AppComponent } from './app.component';
@@ -53,7 +54,8 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-    FlashMessagesModule
+    FlashMessagesModule,
+    DataTableModule
   ],
   providers: [
     ValidateService,

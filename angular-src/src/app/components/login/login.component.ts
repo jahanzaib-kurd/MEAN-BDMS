@@ -4,6 +4,7 @@ import { UsersService } from '../../services/users.service';
 import { AuthService } from '../../services/auth.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from "@angular/router";
+import { PatternValidator } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -13,14 +14,17 @@ import { Router } from "@angular/router";
 export class LoginComponent implements OnInit {
 
   username: String;
+  usernamePattern: RegExp;
   password: String;
   constructor(
     private validateService: ValidateService,
     private flashMessage: FlashMessagesService,
     private usersService: UsersService,
-    private authService:AuthService,
+    private authService: AuthService,
     private router: Router
-  ) { }
+  ) {
+    this.usernamePattern = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,20})$/;
+  }
 
   ngOnInit() {
   }
@@ -45,7 +49,7 @@ export class LoginComponent implements OnInit {
     //Register User
     this.usersService.authenticateUser(user).subscribe(data => {
       if (data.success) {
-        this.authService.storeUserData(data.token,data.user);
+        this.authService.storeUserData(data.token, data.user);
         this.flashMessage.show('user Logged in', { cssClass: 'alert-success', timeout: 3000 });
         this.router.navigate(['/dashboard']);
       }

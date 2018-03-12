@@ -32,4 +32,10 @@ export class AuthService {
     this.user =null;
     localStorage.clear();
   }
+
+  getLoginUsername()
+  {
+    let loginUser = JSON.parse(localStorage.getItem('user'));
+    return (loginUser.username);
+  }
 }

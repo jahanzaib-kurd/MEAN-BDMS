@@ -15,8 +15,9 @@ export class ManageUsersComponent implements OnInit {
 
   ngOnInit() {
     this.usersService.getUsers().subscribe(
-      users => {
-        this.users = users;
+      res => {
+        this.users = res.users;
+        console.log(this.users);
       },
       err => {
         console.log(err);
