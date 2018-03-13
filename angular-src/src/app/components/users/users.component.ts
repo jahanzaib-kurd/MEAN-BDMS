@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class UsersComponent implements OnInit {
   users: Object;
+  selectedUser :Object;
   constructor(
     private usersService: UsersService,
     private router: Router
@@ -19,5 +20,12 @@ export class UsersComponent implements OnInit {
         err => {
           return false;
         });
+  }
+
+  onEditUser(id){
+    console.log(id);
+    this.usersService.getUser(id)
+    .subscribe(res => this.selectedUser = res.user);
+    return false;
   }
 }

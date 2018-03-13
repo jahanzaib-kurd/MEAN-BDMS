@@ -25,7 +25,7 @@
         <td>{{item.email}}</td>
         <td>{{item.isActive}}</td>
         <td>
-          <a routerLink="/edit-user/{{item._id}}"><i class="material-icons">mode_edit</i></a>
+          <a href="#" #editLink data-id="{{item._id}}" (click)="onEditUser(editLink.id)"><i class="material-icons">mode_edit</i></a>
           <a routerLink="/{{item._id}}"><i class="material-icons">delete</i></a>
         </td>
       </tr>
