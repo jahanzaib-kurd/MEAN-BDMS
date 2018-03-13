@@ -23,7 +23,8 @@ const UserSchema = mongoose.Schema({
 		required: true
 	},
 	isActive: {
-		type: Boolean
+		type: Boolean,
+		default: true
 	},
 	isDeleted: {
 		type: Boolean,

@@ -21,6 +21,7 @@ router.get('/', (req, res, next) => {
 router.get('/:id', (req, res, next) => {
 	User.getUserById(req.params.id, (err, user) => {
 		if (err) {
+			
 			res.json({ success: false, msg: err });
 		}
 		else {
@@ -44,7 +45,6 @@ router.post('/edit', (req, res, next) => {
 
 //Register
 router.post('/register', (req, res, next) => {
-	console.log(req.body);
 	let newUser = new User({
 		name: req.body.name,
 		email: req.body.email,

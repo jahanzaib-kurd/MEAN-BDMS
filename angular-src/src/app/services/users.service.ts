@@ -12,9 +12,9 @@ export class UsersService {
     private authService: AuthService,
     private config: AppConfig
   ) {
-    this.serviceUrl = (config.isProd ? config.prodServiceUrl:config.devServiceUrl);
+    this.serviceUrl = (config.isProd ? config.prodServiceUrl : config.devServiceUrl);
   }
-  
+
   authenticateUser(user) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -28,6 +28,15 @@ export class UsersService {
     headers.append('Authorization', this.authService.authToken);
     headers.append('Content-Type', 'application/json');
     return this.http.get(this.serviceUrl + 'users/', { headers: headers })
+      .map(res => res.json());
+  }
+
+  getUser(id) {
+    let headers = new Headers();
+    this.authService.loadToken();
+    headers.append('Authorization', this.authService.authToken);
+    headers.append('Content-Type', 'application/json');
+    return this.http.get(this.serviceUrl + 'users/' + id, { headers: headers })
       .map(res => res.json());
   }
 
