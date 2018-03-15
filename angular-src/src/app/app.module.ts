@@ -1,14 +1,14 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { APP_INITIALIZER } from '@angular/core';
-import { AppConfig } from './app.config';
-import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
 import { Component } from '@angular/core/src/metadata/directives';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { DataTableModule } from "angular2-datatable";
-
+import { AppConfig } from './app.config';
 //Components
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -29,6 +29,8 @@ import { UsersService } from './services/users.service';
 //Guards
 import { AuthGuard } from './guards/auth.guard';
 
+//angular modules
+import { MaterialModule } from './material.module';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -59,7 +61,9 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule,
-    DataTableModule
+    DataTableModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [
     ValidateService,
