@@ -1,4 +1,4 @@
-<h2 class="page-header">Register</h2>
+<!--<h2 class="page-header">Register</h2>
 <form (submit)="onRegisterSubmit()">
   <div class="form-group">
     <label>Name</label>
@@ -17,4 +17,52 @@
     <input type="password" name="password" [(ngModel)]="password" class="form-control" placeholder="Password">
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+</form>-->
+<div class="mat-elevation-z6 formdiv">
+    <h2 class="page-header">Register</h2>
+    <form novalidate (submit)="onRegisterSubmit()" class="login-form" #registerForm="ngForm">
+         <mat-form-field class="full-width">
+            <input type="text" matInput placeholder="Email" [(ngModel)]="email" [pattern]="emailPattern" #emailInp="ngModel" name="email"
+              required>
+            <mat-hint>Enter Email</mat-hint>
+            <mat-error *ngIf="emailInp.errors?.pattern">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailInp.errors?.required">
+              Email is
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        <mat-form-field class="full-width">
+              <input type="text" matInput placeholder="Name" [(ngModel)]="name"  #nameInp="ngModel" name="name"
+                required>
+              <mat-hint>Enter name</mat-hint>
+              <mat-error *ngIf="nameInp.errors?.required">
+                name is
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+      <mat-form-field class="full-width">
+        <input type="text" matInput placeholder="Username" [(ngModel)]="username" [pattern]="emailPattern" #uname="ngModel" name="username"
+          required>
+        <mat-hint>Enter username (email)</mat-hint>
+        <mat-error *ngIf="uname.errors?.pattern">
+          Please enter a valid username
+        </mat-error>
+        <mat-error *ngIf="uname.errors?.required">
+          Username is
+          <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+          <input type="password" matInput placeholder="Password" [(ngModel)]="password" #pass="ngModel" name="password"
+            required>
+          <mat-hint>Enter your password</mat-hint>
+          <mat-error *ngIf="pass.errors?.required">
+            Username is
+            <strong>required</strong>
+          </mat-error>
+        </mat-form-field><!-- -->
+        <button mat-raised-button type="submit" color="primary" class="primary-btn">Register</button>
+    </form>
+  </div>

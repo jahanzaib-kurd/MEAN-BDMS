@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { Component } from '@angular/core/src/metadata/directives';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { FlashMessagesModule } from 'angular2-flash-messages';
 import { DataTableModule } from "angular2-datatable";
 import { AppConfig } from './app.config';
 //Components
@@ -60,10 +58,10 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-    FlashMessagesModule,
     DataTableModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ],
   providers: [
     ValidateService,

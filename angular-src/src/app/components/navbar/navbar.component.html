@@ -5,10 +5,10 @@
   </a>
     <a mat-button [routerLink]="['/']">Home</a>
     <span class="example-spacer"></span>
-    <a mat-button [routerLink]="['/login']">Login</a>
-    <a mat-button [routerLink]="['/register']">Register</a>
-    <a mat-button [routerLink]="['/dashboard']">Dashboard</a>
-    <a mat-button [routerLink]="['/profile']">Profile</a>
+    <a *ngIf="!authService.loggedIn()" mat-button [routerLink]="['/login']">Login</a>
+    <a *ngIf="!authService.loggedIn()" mat-button [routerLink]="['/register']">Register</a>
+    <a *ngIf="authService.loggedIn()" mat-button [routerLink]="['/dashboard']">Dashboard</a>
+    <a *ngIf="authService.loggedIn()" mat-button [routerLink]="['/profile']">Profile</a>
   </mat-toolbar-row>
 </mat-toolbar>
 <!--<nav class="navbar navbar-expand-lg navbar-dark bg-primary">

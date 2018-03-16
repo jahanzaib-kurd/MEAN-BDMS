@@ -2,10 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ValidateService } from '../../services/validate.service';
 import { UsersService } from '../../services/users.service';
 import { AuthService } from '../../services/auth.service';
-import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from "@angular/router";
-import { PatternValidator } from '@angular/forms';
-
+import { FormControl, FormGroupDirective, NgForm, Validators, PatternValidator } from '@angular/forms';
+import { MatSnackBar } from '@angular/material';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,10 +17,10 @@ export class LoginComponent implements OnInit {
   password: String;
   constructor(
     private validateService: ValidateService,
-    private flashMessage: FlashMessagesService,
     private usersService: UsersService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) {
     this.usernamePattern = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,20})$/;
   }
@@ -37,12 +36,12 @@ export class LoginComponent implements OnInit {
 
     // Required Fields
     if (!this.validateService.validateLogin(user)) {
-      this.flashMessage.show('Please fill all fields', { cssClass: 'alert-danger', timeout: 3000 });
+      this.snackBar.open('Please fill all fields', '', { duration: 5000, horizontalPosition: 'right', verticalPosition: 'bottom' });
       return false;
     }
 
     if (!this.validateService.validateEmail(user.username)) {
-      this.flashMessage.show('Please enter valid email', { cssClass: 'alert-danger', timeout: 3000 });
+      this.snackBar.open('Please enter valid email');
       return false;
     }
 
@@ -50,11 +49,11 @@ export class LoginComponent implements OnInit {
     this.usersService.authenticateUser(user).subscribe(data => {
       if (data.success) {
         this.authService.storeUserData(data.token, data.user);
-        this.flashMessage.show('user Logged in', { cssClass: 'alert-success', timeout: 3000 });
+        this.snackBar.open('user Logged in');
         this.router.navigate(['/dashboard']);
       }
       else {
-        this.flashMessage.show(data.msg, { cssClass: 'alert-danger', timeout: 3000 });
+        this.snackBar.open(data.msg);
         this.router.navigate(['login']);
       }
     });

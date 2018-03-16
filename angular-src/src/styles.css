@@ -5,7 +5,6 @@ body{
     font-family: Roboto,Helvetica Neue Light,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;
     margin: 0;
 }
-
 app-root{
     display: -webkit-box;
     display: -ms-flexbox;
@@ -19,8 +18,8 @@ app-root{
     bottom: 0;
     left: 0;
     right: 0;
-  }
-
+    background: #E0E0E0;
+}
   app-navbar {
     position: fixed;
     top: 0;
@@ -44,12 +43,10 @@ app-root{
     overflow: hidden;
     background: #2196f3;
 }
-
 .docs-header-section{
     text-align: center;
     padding-top: 43px;
 }
-
 .docs-header-headline{
     color: #fff;
 }
@@ -66,30 +63,92 @@ app-root{
     margin: 15px 0 25px 0;
     font-weight: 400;
 }
-
 .mat-h1{
     font: 400 24px/32px Roboto,Helvetica Neue,sans-serif;
     margin: 0 0 16px;
 }
-
 .docs-header-start{
     text-align: center;
     margin: 60px 0;
     color: #2196f3;
 }
-
-
 .example-icon {
     padding: 0 14px;
-  }
-  
-  .example-spacer {
+}
+.example-spacer {
     flex: 1 1 auto;
-  }
-  .mat-toolbar-row{
+}
+.mat-toolbar-row{
     height: 40px !important;
-  }
-  .mat-toolbar-multiple-rows {
+}
+.mat-toolbar-multiple-rows {
     min-height: 40px !important;
 }
-
+.docs-homepage-promo {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 16px;
+}
+.docs-homepage-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    max-width: 920px;
+    margin: 60px 0;
+}
+.docs-homepage-promo-desc{
+    line-height: 2;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.docs-homepage-promo h3 {
+    font-size: 25px;
+    font-weight: 400;
+    margin: 0 0 16px 0;
+    padding: 0;
+}
+.formdiv{
+    margin: auto;
+    width:30%;
+    padding: 30px;
+    margin-top: 40px;
+    background: white;
+}
+.formdiv h2{
+    font-size: 35px;
+    font-weight: 300;
+    line-height: 25px;
+    margin: 15px 5px;
+}
+.primary-btn{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 20px !important;
+}
+.login-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .full-width {
+    width: 100%;
+    margin-top: 10px;
+  }

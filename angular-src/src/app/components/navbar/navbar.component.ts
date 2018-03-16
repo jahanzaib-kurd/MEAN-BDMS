@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from "@angular/router";
-
+import { MatSnackBar } from '@angular/material';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -11,16 +10,16 @@ import { Router } from "@angular/router";
 export class NavbarComponent implements OnInit {
 
   constructor(
-    private flashMessage: FlashMessagesService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
   }
-  onLogoutClick(){
+  onLogoutClick() {
     this.authService.logOut();
-    this.flashMessage.show('user Logged out', { cssClass: 'alert-success', timeout: 3000 });
+    this.snackBar.open('user Logged out');
     this.router.navigate(['/login']);
     return false;
   }
