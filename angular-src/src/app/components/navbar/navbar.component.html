@@ -1,14 +1,17 @@
-<mat-toolbar color="primary" class="mat-elevation-z6 docs-navbar-header md-medium-tall">
+<mat-toolbar class="mat-elevation-z6 docs-navbar-header md-medium-tall primary-color">
   <mat-toolbar-row>
     <a mat-button href="#">
     <span>MEAN Auth App</span>
   </a>
     <a mat-button [routerLink]="['/']">Home</a>
+    <a mat-button [routerLink]="['/users']">Manage Users</a>
+    <a mat-button [routerLink]="['/manage-areas']">Manage Areas</a>
     <span class="example-spacer"></span>
     <a *ngIf="!authService.loggedIn()" mat-button [routerLink]="['/login']">Login</a>
     <a *ngIf="!authService.loggedIn()" mat-button [routerLink]="['/register']">Register</a>
     <a *ngIf="authService.loggedIn()" mat-button [routerLink]="['/dashboard']">Dashboard</a>
     <a *ngIf="authService.loggedIn()" mat-button [routerLink]="['/profile']">Profile</a>
+    <a *ngIf="authService.loggedIn()"  mat-button (click)="onLogoutClick()" href="#">Logout</a>
   </mat-toolbar-row>
 </mat-toolbar>
 <!--<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
