@@ -11,7 +11,7 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://www.google.com/design/spec/style/color.html
 $custom-app-primary: mat-palette($mat-blue, 500, 200, 900);
-$custom-app-accent:  mat-palette($mat-grey, 300, 200, 900);
+$custom-app-accent:  mat-palette($mat-grey, 600, 400, 800);
 
 // The warn palette is optional (defaults to red).
 $custom-app-warn:    mat-palette($mat-red);

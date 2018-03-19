@@ -1,0 +1,11 @@
+.progressbar-hidden {
+    visibility: hidden;
+}
+.progressbar-overlay {
+    position: absolute;
+    width:100%;
+    top:0;
+    left: 0;
+    opacity: 1;
+    z-index: 500000;
+}

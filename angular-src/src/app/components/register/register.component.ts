@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ValidateService } from '../../services/validate.service';
 import { UsersService } from '../../services/users.service';
 import { Router } from "@angular/router";
-import { MatSnackBar } from '@angular/material';
+import { SnackbarService } from '../../services/snackbar.service';
 import { FormControl, FormGroupDirective, NgForm, Validators, PatternValidator } from '@angular/forms';
 
 @Component({
@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private validateService: ValidateService,
-    private snackBar: MatSnackBar,
+    private snackBar: SnackbarService,
     private usersService: UsersService,
     private router: Router
   ) { }
@@ -38,23 +38,23 @@ export class RegisterComponent implements OnInit {
 
     // Required Fields
     if (!this.validateService.validateRegister(user)) {
-      this.snackBar.open('Please fill all fields');
+      this.snackBar.showMessage('Please fill all fields');
       return false;
     }
 
     if (!this.validateService.validateEmail(user.email)) {
-      this.snackBar.open('Please enter valid email');
+      this.snackBar.showMessage('Please enter valid email');
       return false;
     }
 
     //Register User
     this.usersService.registerUser(user).subscribe(data => {
       if (data.success) {
-        this.snackBar.open('user has been registered');
+        this.snackBar.showMessage('user has been registered');
         this.router.navigate(['/login']);
       }
       else {
-        this.snackBar.open('User registeration failed');
+        this.snackBar.showMessage('User registeration failed');
         this.router.navigate(['/register']);
       }
     });

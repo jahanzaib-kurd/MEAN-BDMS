@@ -4,8 +4,8 @@
     <span>MEAN Auth App</span>
   </a>
     <a mat-button [routerLink]="['/']">Home</a>
-    <a mat-button [routerLink]="['/users']">Manage Users</a>
-    <a mat-button [routerLink]="['/manage-areas']">Manage Areas</a>
+    <a *ngIf="authService.loggedIn()" mat-button [routerLink]="['/users']">Manage Users</a>
+    <a *ngIf="authService.loggedIn()" mat-button [routerLink]="['/manage-areas']">Manage Areas</a>
     <span class="example-spacer"></span>
     <a *ngIf="!authService.loggedIn()" mat-button [routerLink]="['/login']">Login</a>
     <a *ngIf="!authService.loggedIn()" mat-button [routerLink]="['/register']">Register</a>

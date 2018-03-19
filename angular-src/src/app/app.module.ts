@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { Component } from '@angular/core/src/metadata/directives';
@@ -18,17 +18,19 @@ import { HomeComponent } from './components/home/home.component';
 import { UsersComponent } from './components/users/users.component';
 import { ManageAreasComponent } from './components/manage-areas/manage-areas.component';
 import { EditUserComponent } from './components/users/edit-user/edit-user.component';
-
+import { ProgressbarComponent } from './components/progressbar/progressbar.component';
 //Services
 import { ValidateService } from './services/validate.service';
 import { AuthService } from './services/auth.service';
 import { UsersService } from './services/users.service';
-
+import { SnackbarService } from './services/snackbar.service';
+import { ProgressbarService } from './services/progressbar.service';
 //Guards
 import { AuthGuard } from './guards/auth.guard';
 
 //angular modules
 import { MaterialModule } from './material.module';
+
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -51,7 +53,8 @@ const appRoutes: Routes = [
     HomeComponent,
     UsersComponent,
     ManageAreasComponent,
-    EditUserComponent
+    EditUserComponent,
+    ProgressbarComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +71,9 @@ const appRoutes: Routes = [
     AuthService,
     AuthGuard,
     UsersService,
-    AppConfig
+    AppConfig,
+    SnackbarService,
+    ProgressbarService
   ],
   bootstrap: [AppComponent]
 })

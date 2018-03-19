@@ -1,9 +1,34 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule, MatToolbarModule, MatInputModule, MatProgressSpinnerModule, MatCardModule, MatSnackBarModule, MatTableModule, MatIconModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+import { MatButtonModule, MatToolbarModule, MatInputModule, MatProgressSpinnerModule, MatCardModule, MatSnackBarModule, MatTableModule, MatIconModule, MatPaginatorModule, MatSortModule, MatProgressBarModule } from '@angular/material';
+
 @NgModule({
-    imports: [MatButtonModule, MatToolbarModule, MatInputModule, MatProgressSpinnerModule, MatCardModule, MatSnackBarModule, MatTableModule, MatIconModule, MatPaginatorModule, MatSortModule],
-    exports: [MatButtonModule, MatToolbarModule, MatInputModule, MatProgressSpinnerModule, MatCardModule, MatSnackBarModule, MatTableModule, MatIconModule, MatPaginatorModule, MatSortModule]
+    imports: [
+        MatButtonModule,
+        MatToolbarModule,
+        MatInputModule,
+        MatProgressSpinnerModule,
+        MatCardModule,
+        MatSnackBarModule,
+        MatTableModule,
+        MatIconModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatProgressBarModule
+    ],
+    exports: [
+        MatButtonModule,
+        MatToolbarModule,
+        MatInputModule,
+        MatProgressSpinnerModule,
+        MatCardModule,
+        MatSnackBarModule,
+        MatTableModule,
+        MatIconModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatProgressBarModule
+    ]
 })
 
 export class MaterialModule { }
