@@ -1,7 +1,7 @@
-<div *ngIf="user" class="col-lg-6">
+<div *ngIf="user" class="edit-form-div">
   <h4>Edit User</h4>
   <form novalidate (submit)="onEditUserSubmit(user)" class="edit-form" #editForm="ngForm">
-      <mat-form-field class="full-width">
+      <mat-form-field>
         <input type="text" matInput placeholder="Name" [(ngModel)]="user.name" #name="ngModel" name="name" required>
         <mat-error *ngIf="name.errors?.pattern">
           Please enter a valid name
@@ -11,7 +11,7 @@
           <strong>required</strong>
         </mat-error>
       </mat-form-field>
-      <mat-form-field class="full-width">
+      <mat-form-field>
           <input type="text" matInput placeholder="Email" [(ngModel)]="user.email" #email="ngModel" name="email" [pattern]="validateService.RegExpPatterns.emailPattern" required>
           <mat-error *ngIf="email.errors?.pattern">
               Please enter a valid email

@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy  } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { ProgressbarService } from '../../services/progressbar.service';
-import { ProgressbarState } from '../../progressbar';
+import { ProgressbarState } from '../../core/progressbar';
 
 @Component({
   selector: 'app-progressbar',

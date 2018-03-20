@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
-import { ProgressbarState } from '../progressbar';
+import { ProgressbarState } from '../core/progressbar';
 @Injectable()
 export class ProgressbarService {
 private progressbarSubject = new Subject<ProgressbarState>();

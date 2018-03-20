@@ -26,9 +26,9 @@ import { ProgressbarService } from './services/progressbar.service';
 //Guards
 import { AuthGuard } from './guards/auth.guard';
 //angular modules
-import { MaterialModule } from './material.module';
+import { MaterialModule } from './core/material.module';
 //Config
-import { APP_CONFIG, HERO_DI_CONFIG }    from './app.config';
+import { APP_CONFIG, HERO_DI_CONFIG }    from './core/app.config';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
