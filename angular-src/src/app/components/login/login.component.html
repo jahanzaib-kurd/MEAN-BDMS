@@ -2,7 +2,7 @@
   <h2 class="page-header">Login</h2>
   <form novalidate (submit)="onLoginSubmit()" class="login-form" #loginForm="ngForm">
     <mat-form-field class="full-width">
-      <input type="text" matInput placeholder="Username" [(ngModel)]="username" [pattern]="usernamePattern" #uname="ngModel" name="username"
+      <input type="text" matInput placeholder="Username" [(ngModel)]="username" [pattern]="validateService.RegExpPatterns.usernamePattern" #uname="ngModel" name="username"
         required>
       <mat-hint>Enter username (email)</mat-hint>
       <mat-error *ngIf="uname.errors?.pattern">

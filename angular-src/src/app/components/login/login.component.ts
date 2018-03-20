@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ValidateService, RegExpPatterns } from '../../services/validate.service';
+import { ValidateService} from '../../services/validate.service';
 import { UsersService } from '../../services/users.service';
 import { AuthService } from '../../services/auth.service';
 import { SnackbarService } from '../../services/snackbar.service';
@@ -14,7 +14,6 @@ import { FormControl, FormGroupDirective, NgForm, Validators, PatternValidator }
 export class LoginComponent implements OnInit {
 
   username: String;
-  usernamePattern: RegExp;
   password: String;
   constructor(
     private validateService: ValidateService,
@@ -23,7 +22,6 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private snackBar: SnackbarService
   ) {
-    this.usernamePattern = RegExpPatterns.usernamePattern;
   }
 
   ngOnInit() {

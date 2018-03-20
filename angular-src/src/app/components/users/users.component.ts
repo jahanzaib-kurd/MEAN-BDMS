@@ -27,7 +27,6 @@ export class UsersComponent implements OnInit {
   }
   ngOnInit() {
     this.progressbar.show();
-    debugger;
     this.usersService.getUsers()
       .subscribe(res => {
         this.dataSource = new MatTableDataSource(res.users);

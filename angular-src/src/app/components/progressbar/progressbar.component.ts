@@ -16,7 +16,6 @@ constructor(
         private progressbarService: ProgressbarService
     ) { }
 ngOnInit() { 
-    debugger;
         this.subscription = this.progressbarService.progressbarState
             .subscribe((state: ProgressbarState) => {
                 this.show = state.show;

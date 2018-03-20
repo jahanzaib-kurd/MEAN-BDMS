@@ -1,5 +1,11 @@
 import { Injectable } from '@angular/core';
 
+export interface RegexPatterns {
+  emailPattern:RegExp,
+  usernamePattern:RegExp,
+  namePattern:RegExp
+  }
+
 @Injectable()
 export class ValidateService {
   constructor() { }
@@ -28,15 +34,9 @@ export class ValidateService {
     }
     return true;
   }
+    RegExpPatterns: RegexPatterns = {
+    emailPattern:/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+    usernamePattern:/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+    namePattern:/^[a-z ,.'-]+$/
+  };
 }
-export interface RegexPatterns {
-  emailPattern:RegExp,
-  usernamePattern:RegExp,
-  namePattern:RegExp
-  }
-export const RegExpPatterns: RegexPatterns = {
-  emailPattern:/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-  usernamePattern:/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-  namePattern:/^[a-z ,.'-]+$/
-};
-

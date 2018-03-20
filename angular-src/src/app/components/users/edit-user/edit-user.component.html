@@ -12,9 +12,9 @@
         </mat-error>
       </mat-form-field>
       <mat-form-field class="full-width">
-          <input type="text" matInput placeholder="Email" [(ngModel)]="user.email" #email="ngModel" name="email" [pattern]="emailPattern" required>
+          <input type="text" matInput placeholder="Email" [(ngModel)]="user.email" #email="ngModel" name="email" [pattern]="validateService.RegExpPatterns.emailPattern" required>
           <mat-error *ngIf="email.errors?.pattern">
-              Please enter a valid name
+              Please enter a valid email
             </mat-error>
             <mat-error *ngIf="email.errors?.required">
               email is
