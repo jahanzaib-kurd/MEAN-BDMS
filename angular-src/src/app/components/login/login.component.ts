@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ValidateService } from '../../services/validate.service';
+import { ValidateService, RegExpPatterns } from '../../services/validate.service';
 import { UsersService } from '../../services/users.service';
 import { AuthService } from '../../services/auth.service';
 import { SnackbarService } from '../../services/snackbar.service';
@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private snackBar: SnackbarService
   ) {
-    this.usernamePattern = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,20})$/;
+    this.usernamePattern = RegExpPatterns.usernamePattern;
   }
 
   ngOnInit() {

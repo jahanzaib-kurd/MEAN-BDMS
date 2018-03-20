@@ -5,8 +5,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { Component } from '@angular/core/src/metadata/directives';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DataTableModule } from "angular2-datatable";
-import { AppConfig } from './app.config';
 //Components
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -27,10 +25,10 @@ import { SnackbarService } from './services/snackbar.service';
 import { ProgressbarService } from './services/progressbar.service';
 //Guards
 import { AuthGuard } from './guards/auth.guard';
-
 //angular modules
 import { MaterialModule } from './material.module';
-
+//Config
+import { APP_CONFIG, HERO_DI_CONFIG }    from './app.config';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -61,7 +59,6 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-    DataTableModule,
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule
@@ -71,9 +68,9 @@ const appRoutes: Routes = [
     AuthService,
     AuthGuard,
     UsersService,
-    AppConfig,
     SnackbarService,
-    ProgressbarService
+    ProgressbarService,
+    { provide: APP_CONFIG, useValue: HERO_DI_CONFIG }
   ],
   bootstrap: [AppComponent]
 })

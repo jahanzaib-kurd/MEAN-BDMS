@@ -41,19 +41,17 @@ export class UsersComponent implements OnInit {
         });
   }
 
-  onEditUser(id) {
-    console.log(id);
-    this.usersService.getUser(id)
-      .subscribe(res => this.selectedUser = res.user);
-    return false;
-  }
-
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
 
+  onEditUser(user) {
+    this.selectedUser = user;
+    return false;
+  }
+  
   onDeleteUser(id) {
     return false;
   }

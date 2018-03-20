@@ -1,14 +1,18 @@
-import { Inject, Injectable } from '@angular/core';
+import { InjectionToken } from '@angular/core';
 
-@Injectable()
-export class AppConfig {
-    public isProd : Boolean;
-    public devServiceUrl:String;
-    public prodServiceUrl : String;
-    constructor() {
-        this.isProd=false;
-        this.devServiceUrl="http://localhost:8080/";
-        this.prodServiceUrl="";
-    }
+export interface AppConfig {
+    isProd : Boolean;
+    devServiceUrl:string;
+    prodServiceUrl : string;
+  }
 
-}
+  export const APP_CONFIG = new InjectionToken<AppConfig>('app.config');
+  
+  export const HERO_DI_CONFIG: AppConfig = {
+    isProd:false,
+    devServiceUrl:"http://localhost:8080/",
+    prodServiceUrl:""
+  };
+  
+
+

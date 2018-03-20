@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class ValidateService {
-
   constructor() { }
 
   //Registration Form Validation
@@ -30,3 +29,14 @@ export class ValidateService {
     return true;
   }
 }
+export interface RegexPatterns {
+  emailPattern:RegExp,
+  usernamePattern:RegExp,
+  namePattern:RegExp
+  }
+export const RegExpPatterns: RegexPatterns = {
+  emailPattern:/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+  usernamePattern:/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+  namePattern:/^[a-z ,.'-]+$/
+};
+

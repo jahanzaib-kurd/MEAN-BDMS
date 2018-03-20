@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { AuthService } from './auth.service';
-import { AppConfig } from '../app.config';
+import { APP_CONFIG, AppConfig } from '../app.config';
 
 @Injectable()
 export class UsersService {
@@ -10,7 +10,7 @@ export class UsersService {
   constructor(
     private http: Http,
     private authService: AuthService,
-    private config: AppConfig
+    @Inject(APP_CONFIG) config: AppConfig
   ) {
     this.serviceUrl = (config.isProd ? config.prodServiceUrl : config.devServiceUrl);
   }
