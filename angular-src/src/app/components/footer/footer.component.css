@@ -4,6 +4,8 @@
     background-color: #0D47A1!important;
     color: #fff!important;
     width: 100%;
+    margin-top: 40px;
+    position:fixed;
 }
 .docs-footer-list {
     -webkit-box-align: center;
