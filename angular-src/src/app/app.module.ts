@@ -29,6 +29,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { MaterialModule } from './core/material.module';
 //Config
 import { APP_CONFIG, HERO_DI_CONFIG }    from './core/app.config';
+import { FooterComponent } from './components/footer/footer.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -52,7 +53,8 @@ const appRoutes: Routes = [
     UsersComponent,
     ManageAreasComponent,
     EditUserComponent,
-    ProgressbarComponent
+    ProgressbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

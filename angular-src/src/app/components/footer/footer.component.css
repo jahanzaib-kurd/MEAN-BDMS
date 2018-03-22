@@ -1,0 +1,20 @@
+.docs-footer{
+    bottom:0;
+    font-size: 12px;
+    background-color: #0D47A1!important;
+    color: #fff!important;
+    width: 100%;
+}
+.docs-footer-list {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    padding: 8px;
+}
