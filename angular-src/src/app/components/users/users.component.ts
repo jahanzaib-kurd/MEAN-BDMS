@@ -36,21 +36,23 @@ export class UsersComponent implements OnInit {
       },
         err => {
           this.progressbar.hide();
-          return false;         
+          return false;
         });
   }
-
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
-
   onEditUser(user) {
     this.selectedUser = user;
     return false;
   }
-  
+  onEditUserCancel(canceled: boolean) {
+    if (canceled) {
+      this.selectedUser = null;
+    }
+  }
   onDeleteUser(id) {
     return false;
   }

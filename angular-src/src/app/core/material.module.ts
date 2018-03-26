@@ -12,7 +12,8 @@ import {
     MatPaginatorModule,
     MatSortModule,
     MatProgressBarModule,
-    MatDividerModule
+    MatDividerModule,
+    MatTooltipModule
 } from '@angular/material';
 
 @NgModule({
@@ -28,7 +29,8 @@ import {
         MatPaginatorModule,
         MatSortModule,
         MatProgressBarModule,
-        MatDividerModule
+        MatDividerModule,
+        MatTooltipModule
     ],
     exports: [
         MatButtonModule,
@@ -42,7 +44,8 @@ import {
         MatPaginatorModule,
         MatSortModule,
         MatProgressBarModule,
-        MatDividerModule
+        MatDividerModule,
+        MatTooltipModule
     ]
 })
 
